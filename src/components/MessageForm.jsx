@@ -8,9 +8,9 @@ const MessageForm = (props) => {
 
   const handleChange = (event) => {
 
-    setValue(event.target.value);
+    // setValue(event.target.value);
 
-    // isTyping(props, chatId);
+    isTyping(props, chatId);
   };
 
 
@@ -37,7 +37,9 @@ const MessageForm = (props) => {
         className="message-input"
         placeholder="Send a message..."
         value={value}
-        onChange={handleChange}
+        onChange={(event) =>
+          setValue(event.target.value) && isTyping(props, chatId)
+        }
         onSubmit={handleSubmit}
       />
       <label htmlFor="upload-button">
